@@ -1,0 +1,19 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConnectFour.MainPage"
+             Title="Connect Four">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Connect Four"
+               FontSize="36"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Button Text="Play"
+                FontSize="24"
+                Clicked="OnPlayButtonClicked" />
+
+        <Button Text="Leaderboard"
+                FontSize="24"
+                Clicked="OnLeaderboardClicked" />
+    </VerticalStackLayout>
+</ContentPage>

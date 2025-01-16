@@ -1,0 +1,4 @@
+C:\Users\User\source\repos\ConnectFour.DataAccess\ConnectFour.DataAccess.csproj;neutral
+C:\Users\User\source\repos\ConnectFour.Models\ConnectFour.Models.csproj;neutral
+C:\Users\User\source\repos\ConnectFour.Models\ConnectFour.Models.csproj;neutral
+C:\Users\User\source\repos\ConnectFour\ConnectFour.csproj;x64
