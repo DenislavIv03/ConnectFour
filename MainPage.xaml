@@ -6,14 +6,30 @@
         <Label Text="Connect Four"
                FontSize="36"
                FontAttributes="Bold"
-               HorizontalOptions="Center" />
+               TextColor="#DADADA"
+               HorizontalOptions="Center" 
+               Padding="0,0,0,20"/>
 
         <Button Text="Play"
                 FontSize="24"
+                TextColor="White"
+                BackgroundColor="#8A2BE2"
+                CornerRadius="15"
+                Padding="10,5"
+                WidthRequest="200"
+                HorizontalOptions="Center"
                 Clicked="OnPlayButtonClicked" />
+
+        <Label HeightRequest="10" />
 
         <Button Text="Leaderboard"
                 FontSize="24"
+                TextColor="White"
+                BackgroundColor="#8A2BE2"
+                CornerRadius="15"
+                Padding="10,5"
+                WidthRequest="200"
+                HorizontalOptions="Center"
                 Clicked="OnLeaderboardClicked" />
     </VerticalStackLayout>
 </ContentPage>

@@ -18,11 +18,8 @@ public partial class GameBoardPage : ContentPage
 
     private void CreateGameboard()
     {
-        // Clear the grid if necessary
-        var gameBoard = this.Content.FindByName<Grid>("Grid");
-        gameBoard.Children.Clear();
+        GameGrid.Children.Clear();
 
-        // Create the buttons and add them to the grid
         for (int row = 0; row < Rows; row++)
         {
             for (int col = 0; col < Columns; col++)
@@ -37,16 +34,13 @@ public partial class GameBoardPage : ContentPage
                     CommandParameter = col
                 };
 
-                // Pass the column as a parameter for the click event
                 button.Clicked += Button_Clicked;
 
-                // Store the button in the cells array
                 _cells[row, col] = button;
 
-                // Add the button to the grid
-                Grid.SetRow((IView)button, row);
-                Grid.SetColumn((IView)button, col);
-                gameBoard.Children.Add(button);
+                GameGrid.SetRow((IView)button, row);
+                GameGrid.SetColumn((IView)button, col);
+                GameGrid.Children.Add(button);
             }
         }
     }
@@ -63,23 +57,19 @@ public partial class GameBoardPage : ContentPage
     {
         bool piecePlaced = false;
 
-        // Find the lowest available row in the clicked column
         for (int r = Rows - 1; r >= 0; r--)
         {
             if (_cells[r, col].BackgroundColor == Colors.LightGray)
             {
-                // Set the button color based on the current player's turn
                 _cells[r, col].BackgroundColor = _isPlayerOneTurn ? Colors.Red : Colors.Yellow;
                 piecePlaced = true;
 
-                // Check for a win
                 if (CheckWin(r, col))
                 {
                     DisplayWinner(_isPlayerOneTurn ? "Player 1" : "Player 2");
                     return;
                 }
 
-                // Switch to the other player's turn
                 _isPlayerOneTurn = !_isPlayerOneTurn;
                 break;
             }
@@ -95,10 +85,10 @@ public partial class GameBoardPage : ContentPage
     {
         var currentColor = _cells[row, col].BackgroundColor;
 
-        return CheckDirection(row, col, 1, 0, currentColor) || // Horizontal
-               CheckDirection(row, col, 0, 1, currentColor) || // Vertical
-               CheckDirection(row, col, 1, 1, currentColor) || // Diagonal \
-               CheckDirection(row, col, 1, -1, currentColor);  // Diagonal /
+        return CheckDirection(row, col, 1, 0, currentColor) || 
+               CheckDirection(row, col, 0, 1, currentColor) || 
+               CheckDirection(row, col, 1, 1, currentColor) || 
+               CheckDirection(row, col, 1, -1, currentColor);  
     }
 
     private bool CheckDirection(int row, int col, int rowDir, int colDir, Color color)
